@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A.H.D Marca Sports | Asociación Hispanoamericana del Deporte</title>
+  <meta name="description" content="Asociación Hispanoamericana del Deporte: entrenadores, médicos, fisioterapeutas y periodistas deportivos en un solo lugar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<header class="barra">
+  <a class="marca" href="#inicio">A.H.D <span>Marca Sports</span></a>
+  <nav aria-label="Principal">
+    <a href="#inicio">Inicio</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#cursos-publicos">Cursos</a>
+    <a href="#contacto">Contacto</a>
+    <button id="btnIngresar" class="btn btn-claro" type="button">Ingresar</button>
+    <button id="btnSalir" class="btn btn-claro" type="button" hidden>Salir</button>
+  </nav>
+</header>
+
+<main>
+  <!-- INICIO -->
+  <section id="inicio" class="hero">
+    <div class="hero-texto">
+      <h1>El deporte hispanoamericano se organiza aquí.</h1>
+      <p>Más de 800 entrenadores, médicos, fisioterapeutas y periodistas deportivos se forman y trabajan juntos en la A.H.D.</p>
+      <button class="btn btn-oro" type="button" data-abrir-login>Ingresar con mi cédula</button>
+    </div>
+    <ul class="cifras" aria-label="Quiénes forman la asociación">
+      <li><strong>800+</strong> afiliados</li>
+      <li><strong>4</strong> perfiles profesionales</li>
+      <li><strong>100%</strong> en línea</li>
+    </ul>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section id="nosotros" class="seccion">
+    <h2>Quiénes somos</h2>
+    <p class="intro">La Asociación Hispanoamericana del Deporte reúne a quienes hacen posible el deporte: quienes entrenan, curan, rehabilitan y cuentan lo que pasa en la cancha.</p>
+    <div class="perfiles">
+      <article><h3>Entrenadores deportivos</h3><p>Metodología, planificación y liderazgo de equipos.</p></article>
+      <article><h3>Médicos del deporte</h3><p>Prevención, diagnóstico y medicina de alto rendimiento.</p></article>
+      <article><h3>Fisioterapeutas</h3><p>Rehabilitación y retorno seguro a la competencia.</p></article>
+      <article><h3>Periodistas deportivos</h3><p>Cobertura, ética y comunicación del deporte.</p></article>
+    </div>
+  </section>
+
+  <!-- CURSOS PÚBLICOS -->
+  <section id="cursos-publicos" class="seccion seccion-oscura">
+    <h2>Nuestros cursos</h2>
+    <p class="intro">Los afiliados acceden al contenido completo. Ingresa con tu cédula para verlo.</p>
+    <div id="vitrina" class="rejilla"></div>
+  </section>
+
+  <!-- ZONA DE AFILIADOS (solo tras ingresar) -->
+  <section id="zona-afiliado" class="seccion" hidden>
+    <div class="saludo">
+      <h2 id="saludo"></h2>
+      <p id="perfil" class="etiqueta"></p>
+    </div>
+
+    <div class="pestanas" role="tablist">
+      <button role="tab" class="pestana activa" data-panel="p-cursos">Mis cursos</button>
+      <button role="tab" class="pestana" data-panel="p-eventos">Eventos</button>
+      <button role="tab" class="pestana" data-panel="p-carnet">Mi carnet</button>
+      <button role="tab" class="pestana" data-panel="p-noticias">Noticias</button>
+    </div>
+
+    <div id="p-cursos" class="panel">
+      <div id="listaCursos" class="rejilla"></div>
+    </div>
+
+    <div id="p-eventos" class="panel" hidden>
+      <ul id="listaEventos" class="lista"></ul>
+    </div>
+
+    <div id="p-carnet" class="panel" hidden>
+      <div class="carnet" id="carnet"></div>
+    </div>
+
+    <div id="p-noticias" class="panel" hidden>
+      <ul id="listaNoticias" class="lista"></ul>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="seccion">
+    <h2>Contacto</h2>
+    <p class="intro">¿Quieres afiliarte o tienes dudas? Escríbenos y el profe Martín Cabrera te responde.</p>
+    <a class="btn btn-verde" href="mailto:contacto@ejemplo.com">Escribir a la asociación</a>
+  </section>
+</main>
+
+<footer class="pie">
+  <p>© <span id="anio"></span> Asociación Hispanoamericana del Deporte · A.H.D Marca Sports</p>
+</footer>
+
+<!-- VENTANA DE INGRESO -->
+<dialog id="dlgLogin" aria-labelledby="tituloLogin">
+  <form id="formLogin" method="dialog">
+    <h2 id="tituloLogin">Ingresar como afiliado</h2>
+    <label for="cedula">Número de cédula</label>
+    <input id="cedula" name="cedula" type="text" inputmode="numeric" autocomplete="off" placeholder="Solo números, sin puntos" required>
+    <p id="errorLogin" class="error" role="alert" hidden></p>
+    <div class="acciones">
+      <button type="button" id="btnCancelar" class="btn btn-claro-oscuro">Cancelar</button>
+      <button type="submit" class="btn btn-verde">Entrar</button>
+    </div>
+    <p class="nota">Cédulas de prueba: 1010101010, 1020202020, 1030303030</p>
+  </form>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
